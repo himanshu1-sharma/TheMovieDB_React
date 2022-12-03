@@ -1,0 +1,5 @@
+export const BASEURL = "https://api.themoviedb.org/3/movie/"
+export const API_KEY = "?api_key=8466e3d29086c4eeb41b9ec30e6d997f"
+export const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=8466e3d29086c4eeb41b9ec30e6d997f"
+export const IMG_BASEURL = "https://image.tmdb.org/t/p/w500/"
+export const API_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=8466e3d29086c4eeb41b9ec30e6d997f&query"

@@ -8,6 +8,7 @@ const MovieDetail = () => {
     
     const params = useParams()
     const [movieDetail, getMovieDetail] = useState()
+    const [movieImage, getMovieImage] = useState()
 
     const fetchMovieDetail = () => {
         Axios.get(`${BASEURL}${params.id}${API_KEY}`)
@@ -17,8 +18,17 @@ const MovieDetail = () => {
         })
     }
 
+    const fetchMovieImage = () => {
+        Axios.get(`${BASEURL}${params.id}/images${API_KEY}`)
+        .then(data => {
+            getMovieImage(data.data.backdrops)
+            console.log("images", data.data.backdrops)
+        })
+    }
+
     useEffect(() => {
         fetchMovieDetail()
+        fetchMovieImage()
     }, [])
 
     return (

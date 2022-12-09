@@ -5,16 +5,21 @@ import Axios from 'axios'
 import moment from 'moment'
 import './MovieCard.css'
 import { Link } from 'react-router-dom'
+import SkeletonMovieCard from '../Component/Skeleton/SkeletonMovieCard'
 
 const TopRated = () => {
 
     const [topRatedMovie, setTopRatedMovie] = useState()
+    const [isLoading, setIsLoading] = useState(false)
+
 
     const fetchTopRated = () => {
+        setIsLoading(true)
         Axios.get(`${BASEURL}top_rated${API_KEY}`)
             .then(data => {
                 setTopRatedMovie(data.data.results)
-                console.log('top_rated movies', data.data.results)
+                setIsLoading(false)
+                // console.log('top_rated movies', data.data.results)
             })
     }
 
@@ -37,18 +42,29 @@ const TopRated = () => {
                     {topRatedMovie && topRatedMovie.map((curElt) => {
                         return (
                             <>
-                                <div className='col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6'>
-                                    <Link to={`/movie-detail/${curElt?.id}`}>
-                                    <div className='movieCard'>
-                                        <div className='movieCardImg' style={{ backgroundImage: `url(${IMG_BASEURL + curElt?.poster_path})` }}></div>
-                                        <div>Rating: {curElt?.vote_average}</div>
-                                        <div className='movieCardContent'>
-                                            <h4>{curElt?.title}</h4>
-                                            <p>{moment(curElt?.release_date).format('LL')}</p>
-                                        </div>
+                                {isLoading
+
+                                    ?
+
+                                    <div className='col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6'>
+                                        <SkeletonMovieCard />
                                     </div>
-                                    </Link>
-                                </div>
+
+                                    :
+
+                                    <div className='col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6'>
+                                        <Link to={`/movie-detail/${curElt?.id}`}>
+                                            <div className='movieCard'>
+                                                <div className='movieCardImg' style={{ backgroundImage: `url(${IMG_BASEURL + curElt?.poster_path})` }}></div>
+                                                <div>Rating: {curElt?.vote_average}</div>
+                                                <div className='movieCardContent'>
+                                                    <h4>{curElt?.title}</h4>
+                                                    <p>{moment(curElt?.release_date).format('LL')}</p>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                }
                             </>
                         )
                     })}

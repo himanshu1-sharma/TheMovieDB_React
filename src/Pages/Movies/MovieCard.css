@@ -10,7 +10,18 @@
     background-repeat: no-repeat;
     border-radius: 6px;
 }
-
+.movieCardContent {
+    color: black;
+}
 .movieCardContent h4{
     font-size: 18px;
+    color: black;
+}
+
+#dark .movieCardContent {
+    color: white;
+}
+#dark .movieCardContent h4{
+    font-size: 18px;
+    color: white;
 }

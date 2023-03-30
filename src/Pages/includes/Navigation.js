@@ -24,6 +24,9 @@ const Navigation = () => {
                             <NavLink exact activeClassName="active" to='/upcoming'>
                                 <li>Upcoming</li>
                             </NavLink>
+                            <NavLink exact activeClassName="active" to='/users'>
+                                <li>Users</li>
+                            </NavLink>
                         </ul>
                     </Nav>
                 </Container>

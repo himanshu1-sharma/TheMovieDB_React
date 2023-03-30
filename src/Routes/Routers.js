@@ -6,6 +6,7 @@ import Upcoming from '../Pages/Movies/Upcoming'
 import Home from '../Pages/Home'
 import MovieDetail from '../Pages/Movies/MovieDetail'
 import ReactSwitch from 'react-switch'
+import Users from '../Pages/Movies/Users'
 
 export const ThemeContext = createContext(null)
 
@@ -26,6 +27,7 @@ const Routers = () => {
                         <Route path='/popular' element={<Popular />} />
                         <Route path='/top-rated' element={<TopRated />} />
                         <Route path='/upcoming' element={<Upcoming />} />
+                        <Route path='/users' element={<Users />} />
                         <Route path="/movie-detail/:id" element={<MovieDetail />} />
                     </Routes>
                     <div className='themeSwitch'>

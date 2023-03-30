@@ -12,23 +12,26 @@ code {
     monospace;
 }
 
-a{
+a {
   text-decoration: none !important;
 }
 
-.title h1{
+.title h1 {
   font-size: 30px;
   margin-top: 3rem;
   font-weight: 700;
 }
-#dark .title h1{
+
+#dark .title h1 {
   color: white;
 }
-.themeColor{
+
+.themeColor {
   height: 100vh;
   overflow: scroll;
   overflow-x: hidden;
 }
+
 /* width */
 .themeColor::-webkit-scrollbar {
   width: 0px;
@@ -38,19 +41,23 @@ a{
 .themeColor::-webkit-scrollbar-track {
   border-radius: 10px;
 }
- 
+
 /* Handle */
 .themeColor::-webkit-scrollbar-thumb {
-  background: red; 
+  background: red;
   border-radius: 10px;
 }
 
-#dark{
+#dark {
   background-color: black;
 }
 
-.themeSwitch{
+.themeSwitch {
   position: absolute;
   top: 30%;
   left: 0;
+}
+
+Nav li {
+  padding: 5px 15px;
 }

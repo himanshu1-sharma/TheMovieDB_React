@@ -16,6 +16,7 @@ const Navigation = () => {
                         <Nav className="me-auto">
                             <NavLink exact activeClassName="active" to='/'>
                                 <li>Home</li>
+
                             </NavLink>
                             <NavLink exact activeClassName="active" to='/popular'>
                                 <li>Popular</li>
